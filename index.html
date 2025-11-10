@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethics Portfolio - Small Things Big Impact</title>
     <style>
+
+        /* Poster Section */
+        .Poster {
+            padding: 120px 20px;
+            text-align: center;
+            color: rgb(44, 62, 80);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poster-image{
+            max-width: 400px;
+            align-self: center;
+        }
+
+        .Poster-title {
+            position: relative;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: rgb(137, 143, 144);
+            z-index: 1;
+        }
+
+        .poster-heading {
+            position: relative;
+            font-size: 52px;
+            font-weight: 300;
+            z-index: 1;
+            letter-spacing: 1px;
+            text-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .Poster {
+                padding: 80px 15px;
+            }
+
+            .poster-heading {
+                font-size: 34px;
+            }
+        }
+
+
         /* *****Video Section***** */
         .video-section {
             padding: 80px 20px;
@@ -680,7 +738,7 @@
 </section>
 
 <!-- Video Section-->
-<section class="video-section">
+<section data-aos="fade-up" data-aos-duration="1500" class="video-section">
     <div class="section-title">Watch Our Story</div>
     <h2 class="section-heading">Small Things, Big Impact</h2>
 
@@ -689,6 +747,13 @@
             <source src="forWeb.mp4" type="video/mp4">
         </video>
     </div>
+</section>
+
+<!--Poster on Small Efforts BigImpact-->
+<section data-aos="fade-up" data-aos-duration="1500" class="Poster">
+    <div class="Poster-title">Here's Our Take</div>
+    <h2 class="poster-heading">Small Efforts Big Impact</h2>
+    <img class="poster-image" src="nis_pos2.jpeg" alt="Image">
 </section>
 
 <!--Carousel Section2-->
@@ -700,16 +765,19 @@
     <div class="portrait-carousel-container" id="portraitCarousel">
         <div class="portrait-carousel-wrapper">
             <div class="portrait-slide active">
-                <img src="pos1.jpeg" alt="Portrait 1">
+                <img src="nis_pos1.jpeg" alt="Portrait 1">
+            </div>
+            <div class="portrait-slide ">
+                <img src="pos1.jpeg" alt="Portrait 2">
             </div>
             <div class="portrait-slide">
-                <img src="pos2.jpeg" alt="Portrait 2">
+                <img src="pos2.jpeg" alt="Portrait 3">
             </div>
             <div class="portrait-slide">
-                <img src="pos3.jpeg" alt="Portrait 3">
+                <img src="pos3.jpeg" alt="Portrait 4">
             </div>
             <div class="portrait-slide">
-                <img src="pos4.jpeg" alt="Portrait 4">
+                <img src="pos4.jpeg" alt="Portrait 5">
             </div>
         </div>
 
@@ -775,14 +843,14 @@
 
     <div class="team-grid">
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <img src="chishti2.png" alt="Chishti" class="team-avatar">
             <h3 class="team-name">Chishti</h3>
             <p class="team-role">STUDENT SCOPE</p>
             <p class="team-description">Tech enthusiast working on improving and improvising moral values through tech.</p>
         </div>
 
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <img src="ananya.jpeg" alt="Ananya" class="team-avatar">
             <h3 class="team-name">Ananya</h3>
             <p class="team-role">STUDENT SCOPE</p>
             <p class="team-description">Passionate about exploring moral philosophy and translating complex ethical concepts into everyday practices.</p>
@@ -803,14 +871,7 @@
         </div>
 
         <div class="team-card">
-            <div class="team-avatar"></div>
-            <h3 class="team-name">Debankit</h3>
-            <p class="team-role">STUDENT SCOPE</p>
-            <p class="team-description">Student with interests in Moral values and Tech.</p>
-        </div>
-        
-        <div class="team-card">
-            <div class="team-avatar"></div>
+            <img src="moks.jpeg" alt="Mokshagna" class="team-avatar">
             <h3 class="team-name">Mokshagna</h3>
             <p class="team-role">STUDENT SCOPE</p>
             <p class="team-description">Creates intuitive experiences that make ethical living accessible and engaging for everyone.</p>
@@ -824,7 +885,7 @@
         </div>
 
         <div class="team-card">
-            <div class="team-avatar"></div>
+            <img src="piyush.jpeg" alt="Piyush" class="team-avatar">
             <h3 class="team-name">Piyush</h3>
             <p class="team-role">STUDENT SCOPE</p>
             <p class="team-description">Builds innovative solutions that empower people to track and improve their ethical footprint.</p>
@@ -842,6 +903,13 @@
             <h3 class="team-name">Revanth</h3>
             <p class="team-role">STUDENT SCOPE</p>
             <p class="team-description">Develops programs that teach ethical decision-making and values-based leadership to diverse audiences.</p>
+        </div>
+
+        <div class="team-card">
+            <div class="team-avatar"></div>
+            <h3 class="team-name">Debankit</h3>
+            <p class="team-role">STUDENT SCOPE</p>
+            <p class="team-description">Student with interests in Moral values and Tech.</p>
         </div>
     </div>
 </section>
@@ -894,6 +962,8 @@
         </a>
     </div>
 </section>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script>
     const portraitCarousel = document.getElementById('portraitCarousel');
@@ -981,4 +1051,3 @@
 
 </body>
 </html>
-
