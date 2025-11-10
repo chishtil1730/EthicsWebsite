@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethics Portfolio - Small Things Big Impact</title>
     <style>
-
-
+        /* *****Video Section***** */
         .video-section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -63,7 +62,87 @@
             transform: translateY(-5px);
         }
 
+        /*Carousel Section2*/
+        /* Portrait Carousel Section */
+        .portrait-carousel-section {
+            padding: 80px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
+        .portrait-carousel-container {
+            position: relative;
+            height: 500px;
+            max-width: 400px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            background: #fff;
+            touch-action: pan-y pinch-zoom; /* allow vertical scrolling */
+        }
+
+        .portrait-carousel-wrapper {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.6s ease-in-out;
+            height: 100%;
+        }
+
+        .portrait-slide {
+            min-height: 100%;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .portrait-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .portrait-btn {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            color: #2c3e50;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .portrait-btn.prev {
+            top: 10px;
+        }
+
+        .portrait-btn.next {
+            bottom: 10px;
+        }
+
+        .portrait-btn:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile-friendly height */
+        @media (max-width: 768px) {
+            .portrait-carousel-container {
+                height: 400px;
+                max-width: 300px;
+            }
+        }
+
+
+
+        /* Carousel Section1*/
         .carousel-section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -612,6 +691,32 @@
     </div>
 </section>
 
+<!--Carousel Section2-->
+<!-- Portrait Carousel Section -->
+<section class="portrait-carousel-section">
+    <div class="section-title">Explore Moments</div>
+    <h2 class="section-heading">Snapshots of Impact</h2>
+
+    <div class="portrait-carousel-container" id="portraitCarousel">
+        <div class="portrait-carousel-wrapper">
+            <div class="portrait-slide active">
+                <img src="pos1.jpeg" alt="Portrait 1">
+            </div>
+            <div class="portrait-slide">
+                <img src="pos2.jpeg" alt="Portrait 2">
+            </div>
+            <div class="portrait-slide">
+                <img src="pos3.jpeg" alt="Portrait 3">
+            </div>
+            <div class="portrait-slide">
+                <img src="pos4.jpeg" alt="Portrait 4">
+            </div>
+        </div>
+
+        <button class="portrait-btn prev">❮</button>
+        <button class="portrait-btn next">❯</button>
+    </div>
+</section>
 
 <!--Carousel Section-->
 <section class="carousel-section">
@@ -661,6 +766,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- Team Section -->
 <section class="team-section">
@@ -783,6 +889,47 @@
 </section>
 
 <script>
+    const portraitCarousel = document.getElementById('portraitCarousel');
+    const portraitWrapper = portraitCarousel.querySelector('.portrait-carousel-wrapper');
+    const portraitSlides = portraitCarousel.querySelectorAll('.portrait-slide');
+    let portraitIndex = 0;
+    let startY = 0;
+    let endY = 0;
+
+    function showPortraitSlide(index) {
+        if (index >= portraitSlides.length) portraitIndex = 0;
+        if (index < 0) portraitIndex = portraitSlides.length - 1;
+        portraitWrapper.style.transform = `translateY(-${portraitIndex * 100}%)`;
+    }
+
+    // Buttons
+    portraitCarousel.querySelector('.next').addEventListener('click', () => {
+        portraitIndex++;
+        showPortraitSlide(portraitIndex);
+    });
+
+    portraitCarousel.querySelector('.prev').addEventListener('click', () => {
+        portraitIndex--;
+        showPortraitSlide(portraitIndex);
+    });
+
+    // Swipe (touch)
+    portraitCarousel.addEventListener('touchstart', (e) => {
+        startY = e.touches[0].clientY;
+    });
+
+    portraitCarousel.addEventListener('touchend', (e) => {
+        endY = e.changedTouches[0].clientY;
+        if (startY - endY > 50) {
+            portraitIndex++;
+            showPortraitSlide(portraitIndex);
+        } else if (endY - startY > 50) {
+            portraitIndex--;
+            showPortraitSlide(portraitIndex);
+        }
+    });
+
+
 
     window.addEventListener('scroll', () => {
         const header = document.querySelector('.header');
