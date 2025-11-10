@@ -5,6 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethics Portfolio - Small Things Big Impact</title>
     <style>
+
+
+        .video-section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            min-height: 400px;
+            object-fit: cover;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 60px 15px;
+            }
+
+            .video-container video {
+                min-height: 250px;
+                border-radius: 15px;
+            }
+
+            .video-container {
+                border-radius: 15px;
+            }
+        }
+
+        /* Optional: Custom video controls styling */
+        .video-container video::-webkit-media-controls-panel {
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        /* Optional: Hover effect */
+        .video-container {
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover {
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+
         .carousel-section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -534,8 +593,20 @@
     </div>
 </section>
 
-<!--Carousel Section-->
+<!-- Video Section-->
+<section class="video-section">
+    <div class="section-title">Watch Our Story</div>
+    <h2 class="section-heading">Small Things, Big Impact</h2>
 
+    <div class="video-container">
+        <video controls poster="thumnail.png">
+            <source src="forWeb.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+
+<!--Carousel Section-->
 <section class="carousel-section">
     <div class="section-title">Small Things Big Impact</div>
     <h2 class="section-heading">Our Values in Action</h2>
@@ -739,4 +810,3 @@
 
 </body>
 </html>
-
